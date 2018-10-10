@@ -41,7 +41,7 @@ export PATH=$PATH:/opt/conda/bin
 
 # Now build the docker image that users will use. This command will build a container from the Dockerfile in this repo
 export SINGLEUSER_IMAGE=singleuser
-docker build -t ${SINGLEUSER_IMAGE} https://raw.githubusercontent.com/ali1rathore/jupyterhub-minimal/master/Dockerfile
+sudo docker build -t singleuser https://raw.githubusercontent.com/ali1rathore/jupyterhub-minimal/master/Dockerfile
 
 # Download the jupyterhub configuration file (jupyterhub_config.py) from this repo
 wget https://raw.githubusercontent.com/ali1rathore/jupyterhub-minimal/master/jupyterhub_config.py
@@ -92,3 +92,5 @@ export SINGLEUSER_IMAGE=<your custom docker image>
 export PATH=$PATH:/opt/conda/bin
 jupyterhub -f jupyterhub_config.py
 ```
+
+Now connect to port 8000 to login to JupyterHub
