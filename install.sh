@@ -44,4 +44,4 @@ wget https://raw.githubusercontent.com/ali1rathore/jupyterhub-minimal/master/jup
 
 }
 
-install()
+install
