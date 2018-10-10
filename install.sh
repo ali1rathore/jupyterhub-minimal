@@ -16,6 +16,7 @@ sudo add-apt-repository \
    stable"
 sudo apt-get update
 sudo apt-get install docker-ce -y
+sudo usermod -aG docker $USER
 
 # install conda and jupyterhub dependancies
 sudo mkdir /opt/conda
