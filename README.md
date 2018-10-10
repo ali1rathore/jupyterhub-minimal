@@ -11,42 +11,6 @@ The following command will install docker, conda, and build the docker image for
 wget -qO - https://raw.githubusercontent.com/ali1rathore/jupyterhub-minimal/master/install.sh | bash
 ```
 
-# Now set the following environment variables
-
-1. The password that all users will use to login
-
-```bash
-export JUPYTERHUB_DUMMY_SECRET=<your super secret password>
-```
-
-2. The name of the admins who can manage users
-
-```bash
-export JUPYTERHUB_ADMINS=admin,admin2
-```
-
-3. [Optional] The location to persist users' home directories
-
-```bash
-export JUPYTER_VOLUMES_DIR=/home/ubuntu/jupyterhub_users
-```
-
-> The default path is `/tmp/jupyterhub_volumes'
-
-4. [Optional] Location of sample notebooks.
-
-```bash
-export SAMPLES_NOTEBOOK_DIR=<path/to/your/samples>
-```
-
-5. [Optional] The name of the singleuser Docker image
-
-```bash
-export SINGLEUSER_IMAGE=<your custom docker image>
-```
-
-> The default Docker image is `jupyterhub/singleuser`
-
 # Start JupyterHub
 
 ```
@@ -54,3 +18,19 @@ sudo PATH=$PATH:/opt/conda/bin JUPYTERHUB_DUMMY_SECRET=<your-super-secret> JUPYT
 ```
 
 Now connect to port 8000 to login to JupyterHub
+
+
+# Configuration Variables:
+
+Set these environment variables in the commandline to modify the default configuration.
+
+1. JUPYTERHUB_DUMMY_SECRET: The password that all users will use to login
+
+2. JUPYTERHUB_ADMINS: The name of the admins who can manage users
+
+3. JUPYTER_VOLUMES_DIR=`/tmp/jupyterhub_volumes`: The location to persist users' home directories
+
+4. SAMPLES_NOTEBOOK_DIR (optional): Location of sample notebooks.
+
+5. SINGLEUSER_IMAGE=`jupyterhub/singleuser`: The name of the singleuser Docker image
+
