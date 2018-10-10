@@ -12,4 +12,4 @@ RUN apt-get -y update && \
     rm -rf /var/lib/apt/lists/*
 
 USER jovyan
-RUN pip install --upgrade ipython-sql pyhive thrift sasl thrift_sasl pip pandas install pandas altair
+RUN pip install --upgrade ipython-sql pyhive thrift sasl thrift_sasl pip pandas altair
