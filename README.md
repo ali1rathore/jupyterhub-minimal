@@ -34,3 +34,13 @@ Set these environment variables in the commandline to modify the default configu
 
 5. SINGLEUSER_IMAGE=`jupyterhub/singleuser`: The name of the singleuser Docker image
 
+# Troubleshooting
+
+Sometimes Docker's usage if `iptables` may cause problems with connecting from your browser to JupyterHub or from a notebook to the Spark Thriftserver.  The following will disable iptables and restart Docker, which seems to work for now.
+
+```bash
+ sudo iptables -X
+ sudo service docker restart
+ ```
+ 
+ Now start JupyterHub
