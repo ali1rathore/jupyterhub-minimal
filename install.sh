@@ -40,9 +40,6 @@ sudo docker build -t singleuser https://raw.githubusercontent.com/ali1rathore/ju
 # Download the jupyterhub configuration file (jupyterhub_config.py) from this repo
 wget https://raw.githubusercontent.com/ali1rathore/jupyterhub-minimal/master/jupyterhub_config.py
 
-# remove iptable filters (OMG!please dont ever do this!)
-# sudo iptables -F
-
 }
 
 install
