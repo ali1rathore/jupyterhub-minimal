@@ -39,7 +39,56 @@ wget -q https://repo.continuum.io/miniconda/Miniconda3-4.5.1-Linux-x86_64.sh -O 
 
 export PATH=$PATH:/opt/conda/bin
 
-# remove iptable filters
+# Now build the docker image that users will use. This command will build a container from the Dockerfile in this repo
+export SINGLEUSER_IMAGE=singleuser
+docker build -t ${SINGLEUSER_IMAGE} https://raw.githubusercontent.com/ali1rathore/jupyterhub-minimal/master/Dockerfile
+
+# Download the jupyterhub configuration file (jupyterhub_config.py) from this repo
+wget https://raw.githubusercontent.com/ali1rathore/jupyterhub-minimal/master/jupyterhub_config.py
+
+# remove iptable filters (OMG!please dont ever do this!)
 sudo iptables -F
 ```
 
+# Now set the following environment variables
+
+1. The password that all users will use to login
+
+```bash
+export JUPYTERHUB_DUMMY_SECRET=<your super secret password>
+```
+
+2. The name of the admins who can manage users
+
+```bash
+export JUPYTERHUB_ADMINS=admin,admin2
+```
+
+3. [Optional] The location to persist users' home directories
+
+```bash
+export JUPYTER_VOLUMES_DIR=/home/ubuntu/jupyterhub_users
+```
+
+> The default path is `/tmp/jupyterhub_volumes'
+
+4. [Optional] Location of sample notebooks.
+
+```bash
+export SAMPLES_NOTEBOOK_DIR=<path/to/your/samples>
+```
+
+5. [Optional] The name of the singleuser Docker image
+
+```bash
+export SINGLEUSER_IMAGE=<your custom docker image>
+```
+
+> The default Docker image is `jupyterhub/singleuser`
+
+# Start JupyterHub
+
+```
+export PATH=$PATH:/opt/conda/bin
+jupyterhub -f jupyterhub_config.py
+```
