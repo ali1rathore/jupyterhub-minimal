@@ -14,7 +14,7 @@ wget -qO - https://raw.githubusercontent.com/ali1rathore/jupyterhub-minimal/mast
 # Start JupyterHub
 
 ```
-sudo PATH=$PATH:/opt/conda/bin JUPYTERHUB_DUMMY_SECRET=<your-super-secret> JUPYTERHUB_ADMINS=admin1,admin2 SINGLEUSER_IMAGE=singleuser /opt/conda/bin/jupyterhub -f jupyterhub_config.py
+PATH=$PATH:/opt/conda/bin JUPYTERHUB_DUMMY_SECRET=<your-super-secret> JUPYTERHUB_ADMINS=admin1,admin2 SINGLEUSER_IMAGE=singleuser /opt/conda/bin/jupyterhub -f jupyterhub_config.py
 ```
 
 Now connect to port 8000 to login to JupyterHub
