@@ -50,8 +50,7 @@ export SINGLEUSER_IMAGE=<your custom docker image>
 # Start JupyterHub
 
 ```
-export PATH=$PATH:/opt/conda/bin
-jupyterhub -f jupyterhub_config.py
+sudo PATH=$PATH:/opt/conda/bin JUPYTERHUB_DUMMY_SECRET=<your-super-secret> JUPYTERHUB_ADMINS=admin1,admin2 SINGLEUSER_IMAGE=singleuser /opt/conda/bin/jupyterhub -f jupyterhub_config.py
 ```
 
 Now connect to port 8000 to login to JupyterHub
