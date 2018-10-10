@@ -11,6 +11,8 @@ The following command will install docker, conda, and build the docker image for
 wget -qO - https://raw.githubusercontent.com/ali1rathore/jupyterhub-minimal/master/install.sh | bash
 ```
 
+> **IMPORTANT** You must logout and login again after running this command.  Otherwise the `ubuntu` user will not have access to docker
+
 # Start JupyterHub
 
 ```
