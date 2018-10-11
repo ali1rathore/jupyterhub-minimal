@@ -12,4 +12,4 @@ RUN apt-get -y update && \
     rm -rf /var/lib/apt/lists/*
 
 USER jovyan
-RUN pip install --upgrade ipython-sql pyhive thrift sasl thrift_sasl pip pandas altair vega_datasets vega
+RUN pip install --upgrade ipython-sql pyhive thrift sasl thrift_sasl pip pandas altair vega_datasets vega ipython-autotime
