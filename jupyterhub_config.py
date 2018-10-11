@@ -52,10 +52,10 @@ def copy_samples_hook(spawner):
     if not os.path.exists(user_volume_dir):
         os.mkdir(user_volume_dir,0o777)
 
-        samples_notebook_dir = os.environ.get("SAMPLES_NOTEBOOK_DIR")
-        if samples_notebook_dir:
-            print("Copying {samples} to {user}".format(samples=samples_notebook_dir,user=user_volume_dir))
-            copyDirectory(samples_notebook_dir,os.path.join(user_volume_dir,'samples'))
+    samples_notebook_dir = os.environ.get("SAMPLES_NOTEBOOK_DIR")
+    if samples_notebook_dir and (samples_notebook_dir != user_volume_dir):
+        print("Copying {samples} to {user}".format(samples=samples_notebook_dir,user=user_volume_dir))
+        copyDirectory(samples_notebook_dir,os.path.join(user_volume_dir,'samples'))
 
 c.Spawner.pre_spawn_hook = copy_samples_hook
 
