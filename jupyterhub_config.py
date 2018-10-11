@@ -62,3 +62,14 @@ c.Spawner.pre_spawn_hook = copy_samples_hook
 # Mount the real user's Docker volume on the host to the notebook user's
 # notebook directory in the container
 c.DockerSpawner.volumes = {jupyter_volumes_dir + '/{username}': {"bind":notebook_dir,"mode":"rw"}}
+
+
+# Add a healthcheck service for loadbalancer
+healthcheck_port = os.environ.get('JUPYTERHUB_HEALTHCHECK_PORT') or '8002'
+c.JupyterHub.services = [
+    {
+        'name': 'healthcheck',
+        'admin': False,
+        'command': ['python3','-m','http.server',healthcheck_port]
+    }
+]
